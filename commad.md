@@ -12,6 +12,11 @@ git remote add origin https://github.com/kymx1983/simpletasks.git
 git push -u origin master
 ```
 
+# サーバ起動
+```
+rails server
+```
+
 # タスクの登録
 
 ## コントローラ作成
@@ -36,3 +41,20 @@ get 'task/new'
       invoke    scss
       create      app/assets/stylesheets/task.scss
 ````
+
+## タスクモデル作成
+```
+rails generate model Task title:string content:text limit_date:date status:integer
+Running via Spring preloader in process 29902
+      invoke  active_record
+      create    db/migrate/20200815125143_create_tasks.rb
+      create    app/models/task.rb
+      invoke    test_unit
+      create      test/models/task_test.rb
+      create      test/fixtures/tasks.yml
+```
+
+```shell script
+rails db:migrate
+```
+

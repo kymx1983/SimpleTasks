@@ -13,3 +13,157 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+
+}
+
+table{
+    border-collapse:collapse;
+    border-spacing: 5px;
+
+}
+
+
+table th,table td{
+    padding: 10px 10px;
+}
+
+table th{
+    background-color: #494949;
+    color: white;
+    border: 1px solid #dfe2e5;
+    white-space: nowrap;
+}
+
+table td{
+    border: 1px solid #dfe2e5;
+}
+
+table tr:nth-child(odd) td {
+    background: #eee;
+}
+
+
+
+h1 {
+    /*線の種類（実線） 太さ 色*/
+    border-bottom: solid 3px black;
+}
+
+h2 {
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 5px black;/*左線*/
+}
+
+.main {
+    padding-top: 50px;
+
+}
+
+.container {
+    border: 1px solid lightgray;
+    padding: 0px 10px 30px 10px;
+    box-shadow: 10px 10px 15px -10px;
+    width: 760px;
+    margin: 30px auto;
+    background-color: white;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1b2538;
+}
+li {
+    float: right;
+    border-right: 1px solid #bbbbbb;
+}
+li:last-child {
+    border-right: none;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover:not(.active) {
+    background-color: #a9bce2;
+}
+.active {
+    background-color: #da3c41;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10000;
+}
+
+a{
+    color: white;
+}
+
+.btn-flat-border {
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: white;
+    background-color: #1b2538;
+    border-radius: 3px;
+    transition: .4s;
+    font-size: 16px;
+}
+
+.btn-flat-border:hover {
+    background: darkgray;
+    color: white;
+}
+
+.year{
+    height:30px;
+    width: 60px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.month{
+    height:30px;
+    width: 40px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.input-text{
+    height:30px;
+    width: 500px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.form-group{
+    margin-bottom: 30px;
+}
+
+.input-content{
+    margin-left: 40px;
+}
+
+.content-area{
+    height: 200px;
+    width: 500px;
+    font-size: 14px;
+}
+
+.errs{
+    color: red;
+    background-color: pink;
+}
