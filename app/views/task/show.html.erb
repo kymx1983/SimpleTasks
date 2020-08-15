@@ -24,6 +24,21 @@
     <wrap class="btn btn-flat-border">
       <%= link_to("削除", "/task/destroy/#{@task.id}") %>
     </wrap>
+    <hr>
+    <br>
+    <div class="form-group">
+      <h2><label>コメント:</label></h2>
+      <%= form_tag("/comment/create") do %>
+        <input type="hidden" class="input-text" name="id" value="<%= @task.id %>"/>
+        <div class="input-content">
+          <label>
+            <textarea class="content-area" name="content" rows="3"></textarea>
+            <br>
+            <input type="submit" class="btn-flat-border" value="書き込む">
+          </label>
+        </div>
+      <% end %>
+    </div>
     <br><br>
   </div>
 </div>

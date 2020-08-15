@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comment/new'
+  get 'comment/edit'
   get 'task/index'
   get "task/show/:id" => "task#show"
   get "task/destroy/:id" => "task#destroy"
@@ -6,5 +8,6 @@ Rails.application.routes.draw do
   get 'task/new'
   post "task/create"
   post "task/update"
+  post "comment/create"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

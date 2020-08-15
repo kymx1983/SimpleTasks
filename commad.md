@@ -58,3 +58,39 @@ Running via Spring preloader in process 29902
 rails db:migrate
 ```
 
+# コメント
+
+## コメントコントローラ
+```shell script
+rails generate controller Comment new edit
+Running via Spring preloader in process 2481
+      create  app/controllers/comment_controller.rb
+       route  get 'comment/new'
+get 'comment/edit'
+      invoke  erb
+      create    app/views/comment
+      create    app/views/comment/new.html.erb
+      create    app/views/comment/edit.html.erb
+      invoke  test_unit
+      create    test/controllers/comment_controller_test.rb
+      invoke  helper
+      create    app/helpers/comment_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    scss
+      create      app/assets/stylesheets/comment.scss
+
+```
+
+## コメントモデル作成
+```shell script
+rails generate model Comment type:integer type_id:integer comment:text
+Running via Spring preloader in process 2697
+      invoke  active_record
+      create    db/migrate/20200815155800_create_comments.rb
+      create    app/models/comment.rb
+      invoke    test_unit
+      create      test/models/comment_test.rb
+      create      test/fixtures/comments.yml
+
+```
