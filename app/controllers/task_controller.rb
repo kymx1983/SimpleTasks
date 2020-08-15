@@ -25,6 +25,25 @@ class TaskController < ApplicationController
     end
   end
 
+  def edit
+    @task = Task.find_by(id:params[:id])
+  end
+
+  def update
+    @task = Task.find_by(id:params[:id])
+
+    @task.title = params[:title]
+    @task.content = params[:content]
+    @task.limit_date = params[:limit_date]
+    @task.status = 0
+
+    if @task.save
+      redirect_to('/task/index')
+    else
+      render("task/edit")
+    end
+  end
+
   def destroy
     @task = Task.find_by(id:params[:id])
     @task.destroy
