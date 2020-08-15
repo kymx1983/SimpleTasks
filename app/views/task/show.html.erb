@@ -1,2 +1,29 @@
-<h1>Task#show</h1>
-<p>Find me in app/views/task/show.html.erb</p>
+<div class="main">
+  <div class="container">
+    <h1>タスク詳細</h1>
+    <div class="form-group">
+      <h2><label>タイトル:</label></h2>
+      <div class="input-content">
+        <%= @task.title %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <h2><label>内容:</label></h2>
+      <div class="input-content">
+        <%= @task.content %>
+      </div>
+    </div>
+
+    <hr>
+    <br>
+    <wrap class="btn btn-flat-border">
+      <%= link_to("編集", "/task/edit/#{@task.id}") %>
+    </wrap>
+
+    <wrap class="btn btn-flat-border">
+      <%= link_to("削除", "/task/destroy/#{@task.id}") %>
+    </wrap>
+    <br><br>
+  </div>
+</div>

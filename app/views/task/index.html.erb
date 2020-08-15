@@ -1,2 +1,14 @@
-<h1>Task#index</h1>
-<p>Find me in app/views/task/index.html.erb</p>
+<div class="main">
+  <% @tasks.each do |task| %>
+    <div class="container">
+      <div>due <%= task.limit_date %></div>
+      <br>
+      <div><%= task.title %></div>
+      <br>
+
+      <wrap class="btn btn-flat-border">
+        <%= link_to("詳細", "/task/show/#{task.id}") %>
+      </wrap>
+    </div>
+  <% end %>
+</div>
