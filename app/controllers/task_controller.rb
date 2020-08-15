@@ -24,4 +24,11 @@ class TaskController < ApplicationController
       render("task/new")
     end
   end
+
+  def destroy
+    @task = Task.find_by(id:params[:id])
+    @task.destroy
+
+    redirect_to("/task/index")
+  end
 end
