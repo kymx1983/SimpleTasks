@@ -99,3 +99,28 @@ Running via Spring preloader in process 2697
 ```shell script
 rails generate migration rename_type_column_to_comments
 ```
+
+# ユーザ
+```shell script
+rails generate controller User edit login new show
+Running via Spring preloader in process 6446
+      create  app/controllers/user_controller.rb
+       route  get 'user/edit'
+get 'user/login'
+get 'user/new'
+get 'user/show'
+      invoke  erb
+      create    app/views/user
+      create    app/views/user/edit.html.erb
+      create    app/views/user/login.html.erb
+      create    app/views/user/new.html.erb
+      create    app/views/user/show.html.erb
+      invoke  test_unit
+      create    test/controllers/user_controller_test.rb
+      invoke  helper
+      create    app/helpers/user_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    scss
+      create      app/assets/stylesheets/user.scss
+```

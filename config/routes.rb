@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'user/edit'
+  get 'user/login'
+  get 'user/new'
+  get 'user/show'
   get 'comment/new'
   get 'comment/edit'
   get 'task/index'
