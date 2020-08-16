@@ -124,3 +124,15 @@ get 'user/show'
       invoke    scss
       create      app/assets/stylesheets/user.scss
 ```
+
+```shell script
+rails generate model User login_id:string password:string user_name
+Running via Spring preloader in process 7550
+      invoke  active_record
+      create    db/migrate/20200816003850_create_users.rb
+      create    app/models/user.rb
+      invoke    test_unit
+      create      test/models/user_test.rb
+      create      test/fixtures/users.yml
+
+```
