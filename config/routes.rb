@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   post "task/create"
   post "task/update"
   post "comment/create"
+  post "user/create"
+  post "user/login_check"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

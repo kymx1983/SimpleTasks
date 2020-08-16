@@ -1,2 +1,38 @@
-<h1>User#new</h1>
-<p>Find me in app/views/user/new.html.erb</p>
+<div class="main">
+  <div class="container">
+    <h1>ユーザの新規登録</h1>
+    <%= form_tag("/user/create") do %>
+      <div class="form-group">
+        <h2><label>名前</label></h2>
+        <div class="input-content">
+          <label>
+            <input type="text" class="input-text" name="user_name">
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h2><label>ログインID</label></h2>
+        <div class="input-content">
+          <label>
+            <input type="text" class="input-text" name="login_id">
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h2><label>password</label></h2>
+        <div class="input-content">
+          <label>
+            <input type="password" class="input-text" name="password">
+          </label>
+        </div>
+      </div>
+
+      <hr>
+      <br>
+      <input type="submit" class="btn-flat-border" value="確定">
+    <% end %>
+    <br><br>
+  </div>
+</div>

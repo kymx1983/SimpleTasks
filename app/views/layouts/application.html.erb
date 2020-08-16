@@ -10,6 +10,17 @@
 
 <body>
 <header>
+  <ul>
+    <% if @current_user %>
+      <li><%= link_to("#{@current_user.user_name} さん", "/user/show/#{@current_user.id}") %></li>
+      <li><%= link_to("ログアウト", "/logout/", {method: :post}) %></li>
+    <% else %>
+      <li><%= link_to("ログイン", "/login") %></li>
+    <% end %>
+    <li><%= link_to("課題登録", "/issue/new") %></li>
+    <li><%= link_to("課題一覧", "/issue/index") %></li>
+    <li><%= link_to("トップ", "/") %></li>
+  </ul>
 </header>
 <%= yield %>
 </body>
