@@ -5,6 +5,16 @@ class TaskController < ApplicationController
 
   def show
     @task = Task.find_by(id:params[:id])
+
+
+    @comments = Comment.where(comment_type:1, type_id:params[:id])
+
+    if(@comments.nil?)
+      puts "nullです"
+    else
+      puts "nullではありませんよ"
+    end
+
   end
 
   def new

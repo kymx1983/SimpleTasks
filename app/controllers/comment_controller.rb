@@ -7,7 +7,7 @@ class CommentController < ApplicationController
 
   def create
     @comment = Comment.new
-    @comment.type = params[:type]
+    @comment.comment_type = params[:comment_type]
     @comment.type_id = params[:id]
     @comment.comment = params[:comment]
 

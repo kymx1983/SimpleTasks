@@ -94,3 +94,8 @@ Running via Spring preloader in process 2697
       create      test/fixtures/comments.yml
 
 ```
+
+## typeが予約語で使えなかったので、リネーム
+```shell script
+rails generate migration rename_type_column_to_comments
+```
