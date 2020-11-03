@@ -13,13 +13,17 @@
   <ul>
     <% if @current_user %>
       <li><%= link_to("#{@current_user.user_name} さん", "/user/show/#{@current_user.id}") %></li>
-      <li><%= link_to("ログアウト", "/logout/", {method: :post}) %></li>
+      <li><%= link_to("Logout", "/logout/", {method: :post}) %></li>
     <% else %>
-      <li><%= link_to("ログイン", "/login") %></li>
+      <li><%= link_to("Login", "/login") %></li>
     <% end %>
-    <li><%= link_to("課題登録", "/issue/new") %></li>
-    <li><%= link_to("課題一覧", "/issue/index") %></li>
-    <li><%= link_to("トップ", "/") %></li>
+    <li><%= link_to("Post", "/") %></li>
+    <li><%= link_to("Report", "/") %></li>
+    <li><%= link_to("Issue", "/") %></li>
+    <li><%= link_to("Note", "/") %></li>
+    <li><%= link_to("Memo", "/") %></li>
+    <li><%= link_to("Task", "/task/index") %></li>
+    <li><%= link_to("Top", "/") %></li>
   </ul>
 </header>
 <%= yield %>

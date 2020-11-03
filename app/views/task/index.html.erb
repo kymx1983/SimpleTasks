@@ -1,4 +1,7 @@
 <div class="main">
+  <wrap class="btn btn-flat-border">
+    <%= link_to("新規登録", "/task/new" )%>
+  </wrap>
   <% @tasks.each do |task| %>
     <div class="container">
       <div>due <%= task.limit_date %></div>

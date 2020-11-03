@@ -19,6 +19,7 @@ class TaskController < ApplicationController
 
   def new
     @task = Task.new
+    @task.limit_date = Date.today
   end
 
   def create
