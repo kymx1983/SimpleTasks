@@ -149,6 +149,13 @@ a{
     text-align: left;
 }
 
+.input-date{
+    height:30px;
+    width: 140px;
+    font-size: 14px;
+    text-align: left;
+}
+
 .form-group{
     margin-bottom: 30px;
 }

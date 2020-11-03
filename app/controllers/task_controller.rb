@@ -1,6 +1,16 @@
 class TaskController < ApplicationController
   def index
     @tasks = Task.all
+    @today = Date.today
+  end
+
+  def search
+    value = params[:search_date]
+
+    @tasks = Task.where(limit_date:value)
+    @today = Date.today
+
+    render("task/index")
   end
 
   def show
@@ -9,11 +19,6 @@ class TaskController < ApplicationController
 
     @comments = Comment.where(comment_type:1, type_id:params[:id])
 
-    if(@comments.nil?)
-      puts "nullです"
-    else
-      puts "nullではありませんよ"
-    end
 
   end
 
