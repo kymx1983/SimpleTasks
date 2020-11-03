@@ -174,3 +174,7 @@ a{
     color: red;
     background-color: pink;
 }
+
+.error_limit{
+    color: red;
+}
