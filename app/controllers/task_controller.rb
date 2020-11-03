@@ -1,25 +1,17 @@
 class TaskController < ApplicationController
   def index
-    @tasks = Task.all
     @limit_date = Date.today
+    @today = Date.today
+
+    @tasks = get_tasks(@today, @limit_date)
   end
 
   def search
     @limit_date = Date.parse(params[:search_date])
     @today = Date.today
-
-    puts @limit_date
-    puts @today
-
-    where = "(limit_date = ? or limit_date < ?)"
     close_display = params[:close_display]
 
-    if close_display != "on"
-      puts "OFFです"
-      where += " and status <> 1"
-    end
-
-    @tasks = Task.where(where, @limit_date, @today)
+    @tasks = get_tasks(@today, @limit_date, close_display)
 
     render("task/index")
 
@@ -97,4 +89,17 @@ class TaskController < ApplicationController
     redirect_to('/task/index')
 
   end
+end
+
+private
+
+def get_tasks(today, limit_date, close_display = "")
+
+  where = "(limit_date = ? or limit_date < ?)"
+
+  if close_display != "on"
+    where += " and status <> 1"
+  end
+
+  return Task.where(where, limit_date, today).order(:limit_date)
 end
