@@ -95,11 +95,13 @@ private
 
 def get_tasks(today, limit_date, close_display = "")
 
-  where = "(limit_date = ? or limit_date < ?)"
+
 
   if close_display != "on"
+    where = "(limit_date = ? or limit_date < ?)"
     where += " and status <> 1"
+    Task.where(where, limit_date, today).order(:limit_date)
   end
 
-  return Task.where(where, limit_date, today).order(:limit_date)
+
 end
