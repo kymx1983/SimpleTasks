@@ -5,10 +5,11 @@ class TaskController < ApplicationController
   end
 
   def search
-    value = params[:search_date]
-
-    @tasks = Task.where(limit_date:value)
+    limit_date = params[:search_date]
     @today = Date.today
+
+    where = "limit_date = ? or limit_date < ?"
+    @tasks = Task.where(where, limit_date, @today)
 
     render("task/index")
   end
@@ -65,5 +66,29 @@ class TaskController < ApplicationController
     @task.destroy
 
     redirect_to("/task/index")
+  end
+
+  def close
+
+    @task = Task.find_by(id:params[:id])
+
+    @task.status = 1
+
+    if @task.save
+      redirect_to('/task/index')
+    else
+      redirect_to('/task/index')
+    end
+
+    #タスクの状況を完了にする
+
+    # 完了コメントがあれば登録する
+    # @comment = Comment.new
+    # @comment.comment_type = params[:comment_type]
+    # @comment.type_id = params[:id]
+    # @comment.comment = params[:comment]
+    # @comment.save
+    #
+    # redirect_to("/task/show/#{params[:id]}")
   end
 end

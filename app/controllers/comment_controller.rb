@@ -12,7 +12,6 @@ class CommentController < ApplicationController
     @comment.comment = params[:comment]
 
     @comment.save
-    # render("task/show/#{params[:id]}")
     redirect_to("/task/show/#{params[:id]}")
   end
 end

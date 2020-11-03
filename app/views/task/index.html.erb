@@ -18,6 +18,7 @@
         <% if @today > task.limit_date %>
           <wrap class="error_limit">期限超過</wrap>
         <% end %>
+        ステータス：<%= task.status %>
       </div>
       <br>
       <div><%= task.title %></div>
@@ -26,6 +27,24 @@
       <wrap class="btn btn-flat-border">
         <%= link_to("詳細", "/task/show/#{task.id}") %>
       </wrap>
+      <wrap class="btn btn-flat-border">
+        <%= link_to("編集", "/task/edit/#{task.id}") %>
+      </wrap>
+      <wrap class="btn btn-flat-border">
+        <%= link_to("削除", "/task/destroy/#{task.id}") %>
+      </wrap>
+
+      <br><br>
+
+      <%= form_tag("/task/close") do %>
+        <input type="hidden" class="input-text" name="comment_type" value="1"/>
+        <input type="hidden" class="input-text" name="id" value="<%= task.id %>"/>
+          <label>
+            <textarea class="content-area" name="comment" rows="3"></textarea>
+            <br>
+            <input type="submit" class="btn-flat-border" value="完了">
+          </label>
+      <% end %>
     </div>
   <% end %>
 

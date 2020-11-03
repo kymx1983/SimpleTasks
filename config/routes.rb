@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "task/edit/:id" => "task#edit"
   get 'task/new'
   post "task/search"
+  post "task/close"
   post "task/create"
   post "task/update"
   post "comment/create"
