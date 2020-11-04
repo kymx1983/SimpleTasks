@@ -67,6 +67,14 @@ class TaskController < ApplicationController
     redirect_to("/task/index")
   end
 
+  def cancel_status
+    @task = Task.find_by(id: params[:id])
+    @task.status = 0
+    @task.save
+
+    redirect_to('/task/index')
+  end
+
   def close
 
     #タスクの状況を完了にする
@@ -94,8 +102,6 @@ end
 private
 
 def get_tasks(today, limit_date, close_display = "")
-
-
 
   if close_display != "on"
     where = "(limit_date = ? or limit_date < ?)"

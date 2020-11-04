@@ -41,14 +41,26 @@
 
       <br><br>
 
-      <%= form_tag("/task/close") do %>
-        <input type="hidden" class="input-text" name="comment_type" value="1"/>
-        <input type="hidden" class="input-text" name="id" value="<%= task.id %>"/>
+      <% if task.status == 0 %>
+        <%= form_tag("/task/close") do %>
+          <input type="hidden" class="input-text" name="comment_type" value="1"/>
+          <input type="hidden" class="input-text" name="id" value="<%= task.id %>"/>
           <label>
             <textarea class="content-area" name="comment" rows="3"></textarea>
             <br>
             <input type="submit" class="btn-flat-border" value="完了">
           </label>
+        <% end %>
+      <% else %>
+        <%= form_tag("/task/cancel_status") do %>
+          <input type="hidden" class="input-text" name="comment_type" value="1"/>
+          <input type="hidden" class="input-text" name="id" value="<%= task.id %>"/>
+          <label>
+            <textarea class="content-area" name="comment" rows="3"></textarea>
+            <br>
+            <input type="submit" class="btn-flat-border" value="対応中に戻す">
+          </label>
+        <% end %>
       <% end %>
     </div>
   <% end %>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'task/new'
   post "task/search"
   post "task/close"
+  post "task/cancel_status"
   post "task/create"
   post "task/update"
   post "comment/create"
