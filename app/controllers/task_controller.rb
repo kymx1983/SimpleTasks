@@ -27,6 +27,7 @@ class TaskController < ApplicationController
     @task.limit_date = Date.today
   end
 
+
   def create
     @task = Task.new
     @task.title = params[:title]

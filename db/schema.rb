@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_16_003850) do
+ActiveRecord::Schema.define(version: 2020_11_04_133259) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "comment_type"
     t.integer "type_id"
     t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "routines", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

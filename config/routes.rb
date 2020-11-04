@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'routine/index'
+  get 'routine/show'
+  get 'routine/new'
   get 'user/edit'
   get 'user/login'
   get 'user/new'
