@@ -1,8 +1,10 @@
 class RoutineController < ApplicationController
   def index
+    @routine = Routine.all
   end
 
   def show
+    @routine = Routine.find_by(id: params[:id])
   end
 
   def new
