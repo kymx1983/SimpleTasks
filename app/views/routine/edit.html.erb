@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="container">
+    <h1>ルーティーン編集</h1>
+
+    <% @routine.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
+      </div>
+    <% end %>
+
+    <%= form_tag("/routine/update") do %>
+
+      <input type="hidden" class="input-text" name="id" value="<%= @routine.id %>"/>
+
+      <div class="form-group">
+        <h2><label>タイトル:</label></h2>
+        <div class="input-content">
+          <label>
+            <input type="text" class="input-text" name="title" value="<%= @routine.title %>"/>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h2><label>内容:</label></h2>
+        <div class="input-content">
+          <label>
+            <textarea class="content-area" name="content" rows="3"><%= @routine.content %></textarea>
+          </label>
+        </div>
+      </div>
+
+      <hr>
+      <br>
+      <input type="submit" class="btn-flat-border" value="確定">　
+    <% end %>
+    <br><br>
+  </div>
+</div>

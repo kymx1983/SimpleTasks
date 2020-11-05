@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "task/edit/:id" => "task#edit"
   get "routine/show/:id" => "routine#show"
   get "routine/destroy/:id" => "routine#destroy"
+  get "routine/edit/:id" => "routine#edit"
   get 'task/new'
   post "task/search"
   post "task/close"
@@ -24,5 +25,6 @@ Rails.application.routes.draw do
   post "user/create"
   post "user/login_check"
   post "routine/create"
+  post "routine/update"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
