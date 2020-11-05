@@ -22,4 +22,12 @@ class RoutineController < ApplicationController
       render("routine/new")
     end
   end
+
+  def destroy
+    @routine = Routine.find_by(id: params[:id])
+    @routine.destroy
+
+    redirect_to("/routine/index")
+  end
+
 end
