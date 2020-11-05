@@ -69,4 +69,19 @@
     <%= link_to("新規登録", "/task/new") %>
   </wrap>
 
+  <%= form_tag("/task/create_task_do") do %>
+    <div class="form-group">
+      <div class="input-content">
+        <label>
+          日付：<input type="date" class="input-date" name="search_date" value="<%= @limit_date %>"/>
+        </label>
+        <lavel>
+          <input type="checkbox" id="input-check" name="close_display">
+        </lavel>
+        <br><br>
+        <input type="submit" class="btn-flat-border" value="ルーティーン作成">
+      </div>
+    </div>
+  <% end %>
+
 </div>

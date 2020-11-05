@@ -17,6 +17,19 @@ class TaskController < ApplicationController
 
   end
 
+  def create_task_do
+    puts "テスト・テスト"
+    @limit_date = Date.parse(params[:search_date])
+    @today = Date.today
+
+    create_task(@limit_date)
+
+    @tasks = get_tasks(@today, @limit_date)
+
+    render("task/index")
+
+  end
+
   def show
     @task = Task.find_by(id: params[:id])
     @comments = Comment.where(comment_type: 1, type_id: params[:id])
@@ -98,20 +111,33 @@ class TaskController < ApplicationController
     redirect_to('/task/index')
 
   end
-end
 
-private
+  private
 
-def get_tasks(today, limit_date, close_display = "")
+  def get_tasks(today, limit_date, close_display = "")
 
-  if close_display != "on"
-    where = "(limit_date = ? or limit_date < ?)"
-    where += " and status <> 1"
-    Task.where(where, limit_date, today).order(:limit_date)
-  else
-    where = "limit_date = ? or (limit_date < ? and status <> 1)"
-    Task.where(where, limit_date, today).order(:limit_date)
+    if close_display != "on"
+      where = "(limit_date = ? or limit_date < ?)"
+      where += " and status <> 1"
+      Task.where(where, limit_date, today).order(:limit_date)
+    else
+      where = "limit_date = ? or (limit_date < ? and status <> 1)"
+      Task.where(where, limit_date, today).order(:limit_date)
+    end
   end
 
+  def create_task(limit_date)
+    routine = Routine.all
+    routine.each do |routine|
+      task = Task.new
+      task.title = routine.title
+      task.content = routine.content
+      task.limit_date = limit_date
+      task.status = 0
+      task.save
+    end
+
+  end
 
 end
+
