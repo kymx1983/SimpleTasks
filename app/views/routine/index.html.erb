@@ -16,13 +16,13 @@
           <td>日次 <%= routine.limit_time %></td>
           <td><%= routine.title %></td>
           <td>
-            <wrap class="btn btn-flat-border">
+            <wrap class="link-button">
               <%= link_to("詳細", "/routine/show/#{routine.id}") %>
             </wrap>
-            <wrap class="btn btn-flat-border">
+            <wrap class="link-buttonr">
               <%= link_to("編集", "/routine/edit/#{routine.id}") %>
             </wrap>
-            <wrap class="btn btn-flat-border">
+            <wrap class="link-button">
               <%= link_to("削除", "/routine/destroy/#{routine.id}") %>
             </wrap>
           </td>
@@ -33,7 +33,7 @@
     <br>
   </div>
   <br>
-  <wrap class="btn btn-flat-border">
+  <wrap class="link-button">
     <%= link_to("新規登録", "/routine/new") %>
   </wrap>
 </div>

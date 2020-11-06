@@ -108,9 +108,6 @@ header {
     z-index: 10000;
 }
 
-a{
-    color: white;
-}
 
 .btn-flat-border {
     display: inline-block;
@@ -121,6 +118,7 @@ a{
     border-radius: 3px;
     transition: .4s;
     font-size: 16px;
+
 }
 
 .btn-flat-border:hover {
@@ -219,4 +217,8 @@ a{
     width: 100%;
     border-radius: 0 0 2px 2px;
     /*font-size: 14px;*/
+}
+
+.link-button{
+    color: blue;
 }
