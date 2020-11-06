@@ -37,14 +37,20 @@ class TaskController < ApplicationController
   def new
     @task = Task.new
     @task.limit_date = Date.today
+    @task.limit_time = "00:00"
   end
 
 
   def create
+
+    puts "時刻を表示"
+    puts params[:limit_time]
+
     @task = Task.new
     @task.title = params[:title]
     @task.content = params[:content]
     @task.limit_date = params[:limit_date]
+    @task.limit_time = params[:limit_time]
     @task.status = 0
 
     if @task.save
@@ -66,6 +72,7 @@ class TaskController < ApplicationController
     @task.title = params[:title]
     @task.content = params[:content]
     @task.limit_date = params[:limit_date]
+    @task.limit_time = params[:limit_time]
     @task.status = 0
 
     if @task.save

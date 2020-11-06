@@ -20,7 +20,7 @@
     <div class="container">
 
       <div>
-        due <%= task.limit_date %>
+        due <%= task.limit_date %> <%= task.limit_time %>
         <% if (@today > task.limit_date) && (task.status != 1) %>
           <wrap class="error_limit">期限超過</wrap>
         <% end %>

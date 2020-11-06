@@ -9,6 +9,13 @@
     </div>
 
     <div class="form-group">
+      <h2><label>期限:</label></h2>
+      <div class="input-content">
+        <%= @task.limit_date %> <%= @task.limit_time %>
+      </div>
+    </div>
+
+    <div class="form-group">
       <h2><label>内容:</label></h2>
       <div class="input-content">
         <%= @task.content %>
