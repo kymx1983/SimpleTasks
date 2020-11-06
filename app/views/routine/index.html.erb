@@ -13,7 +13,7 @@
       <tbody>
       <% @routine.each do |routine| %>
         <tr>
-          <td>日次</td>
+          <td>日次 <%= routine.limit_time %></td>
           <td><%= routine.title %></td>
           <td>
             <wrap class="btn btn-flat-border">

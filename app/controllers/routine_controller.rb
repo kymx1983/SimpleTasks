@@ -9,12 +9,14 @@ class RoutineController < ApplicationController
 
   def new
     @routine = Routine.new
+    @routine.limit_time = "00:00"
   end
 
   def create
     @routine = Routine.new
     @routine.title = params[:title]
     @routine.content = params[:content]
+    @routine.limit_time = params[:limit_time]
 
     if @routine.save
       flash[:notice] = "「#{@routine.title}」を追加しました。"
@@ -42,6 +44,7 @@ class RoutineController < ApplicationController
 
     @routine.title = params[:title]
     @routine.content = params[:content]
+    @routine.limit_time = params[:limit_time]
 
     if @routine.save
       flash[:notice] = "「#{@routine.title}」を編集しました。"
