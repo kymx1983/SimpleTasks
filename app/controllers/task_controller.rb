@@ -18,7 +18,6 @@ class TaskController < ApplicationController
   end
 
   def create_task_do
-    puts "テスト・テスト"
     @limit_date = Date.parse(params[:search_date])
     @today = Date.today
 
@@ -49,8 +48,10 @@ class TaskController < ApplicationController
     @task.status = 0
 
     if @task.save
+      flash[:notice] = "投稿を編集しました"
       redirect_to('/task/index')
     else
+      flash[:alert] = "入力内容に誤りがあります。ご確認ください。"
       render("task/new")
     end
   end
@@ -119,10 +120,10 @@ class TaskController < ApplicationController
     if close_display != "on"
       where = "(limit_date = ? or limit_date < ?)"
       where += " and status <> 1"
-      Task.where(where, limit_date, today).order(:limit_date)
+      Task.where(where, limit_date, today).order(:status).order(:limit_date)
     else
       where = "limit_date = ? or (limit_date < ? and status <> 1)"
-      Task.where(where, limit_date, today).order(:limit_date)
+      Task.where(where, limit_date, today).order(:status).order(:limit_date,)
     end
   end
 
