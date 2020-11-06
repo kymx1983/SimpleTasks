@@ -17,8 +17,10 @@ class RoutineController < ApplicationController
     @routine.content = params[:content]
 
     if @routine.save
+      flash[:notice] = "「#{@routine.title}」を追加しました。"
       redirect_to('/routine/index')
     else
+      flash[:alert] = "入力内容に誤りがあります。ご確認ください。"
       render("routine/new")
     end
   end
@@ -27,6 +29,7 @@ class RoutineController < ApplicationController
     @routine = Routine.find_by(id: params[:id])
     @routine.destroy
 
+    flash[:notice] = "「#{@routine.title}」を削除しました。"
     redirect_to("/routine/index")
   end
 
@@ -41,8 +44,10 @@ class RoutineController < ApplicationController
     @routine.content = params[:content]
 
     if @routine.save
+      flash[:notice] = "「#{@routine.title}」を編集しました。"
       redirect_to('/routine/index')
     else
+      flash[:alert] = "入力内容に誤りがあります。ご確認ください。"
       render("routine/edit")
     end
   end

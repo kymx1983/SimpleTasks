@@ -48,7 +48,7 @@ class TaskController < ApplicationController
     @task.status = 0
 
     if @task.save
-      flash[:notice] = "投稿を編集しました"
+      flash[:notice] = "「#{@task.title}」を追加しました。"
       redirect_to('/task/index')
     else
       flash[:alert] = "入力内容に誤りがあります。ご確認ください。"
@@ -69,8 +69,10 @@ class TaskController < ApplicationController
     @task.status = 0
 
     if @task.save
+      flash[:notice] = "「#{@task.title}」を編集しました。"
       redirect_to('/task/index')
     else
+      flash[:alert] = "入力内容に誤りがあります。ご確認ください。"
       render("task/edit")
     end
   end
@@ -78,6 +80,8 @@ class TaskController < ApplicationController
   def destroy
     @task = Task.find_by(id: params[:id])
     @task.destroy
+
+    flash[:notice] = "「#{@task.title}」を削除しました。"
 
     redirect_to("/task/index")
   end

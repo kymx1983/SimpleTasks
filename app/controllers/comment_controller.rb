@@ -12,6 +12,8 @@ class CommentController < ApplicationController
     @comment.comment = params[:comment]
 
     @comment.save
+
+    flash[:notice] = "コメントを追加しました。"
     redirect_to("/task/show/#{params[:id]}")
   end
 end
