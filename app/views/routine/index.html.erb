@@ -1,13 +1,14 @@
 <div class="main">
 
-  <div class="container">
+  <div class="container_wide">
     <h1>ルーティーン一覧</h1>
     <table>
       <thead>
       <tr>
         <th>周期r</th>
         <th>タイトル</th>
-        <th></th>
+        <th>詳細</th>
+        <th>操作</th>
       </tr>
       </thead>
       <tbody>
@@ -15,6 +16,7 @@
         <tr>
           <td>日次 <%= routine.limit_time %></td>
           <td><%= routine.title %></td>
+          <td><%= simple_format(h(routine.content)) %></td>
           <td>
             <wrap class="link-button">
               <%= link_to("詳細", "/routine/show/#{routine.id}") %>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  root to: 'task#index'
   get 'routine/index'
   get 'routine/show'
   get 'routine/new'
   get 'user/edit'
+  get 'user/login'
   get 'user/login'
   get 'user/new'
   get 'user/show'

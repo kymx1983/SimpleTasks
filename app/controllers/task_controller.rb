@@ -25,6 +25,7 @@ class TaskController < ApplicationController
 
     @tasks = get_tasks(@today, @limit_date)
 
+    flash[:notice] = "ルーティーンからタスクを作成しました。"
     render("task/index")
 
   end
@@ -120,6 +121,7 @@ class TaskController < ApplicationController
       @comment.save
     end
 
+    flash[:notice] = "「#{@task.title}」を完了にしました。"
     redirect_to('/task/index')
 
   end
@@ -145,6 +147,7 @@ class TaskController < ApplicationController
       task.title = routine.title
       task.content = routine.content
       task.limit_date = limit_date
+      task.limit_time = routine.limit_time
       task.status = 0
       task.save
     end
