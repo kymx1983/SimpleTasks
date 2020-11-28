@@ -15,5 +15,6 @@ class CommentController < ApplicationController
 
     flash[:notice] = "コメントを追加しました。"
     redirect_to("/task/show/#{params[:id]}")
+
   end
 end
