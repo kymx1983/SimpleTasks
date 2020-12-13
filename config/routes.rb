@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "routine/edit/:id" => "routine#edit"
   get 'task/new'
   get "login" => "user#login"
+  get "logout" => "user#logout"
   post "task/search"
   post "task/create_task_do"
   post "task/close"

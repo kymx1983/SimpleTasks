@@ -6,6 +6,11 @@ class UserController < ApplicationController
 
   end
 
+  def logout
+    session[:login_id] = nil
+    redirect_to('/login')
+  end
+
   def login_check
     @user = User.find_by(login_id: params[:login_id])
     # @user = User.find_by(id: 1)
