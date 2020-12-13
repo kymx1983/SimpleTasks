@@ -13,7 +13,7 @@
         <h2><label>タイトル:</label></h2>
         <div class="input-content">
           <label>
-            <input type="text" class="input-text" name="title"/>
+            <input type="text" class="input-text" name="title" value="<%= @task.title %>" />
           </label>
         </div>
       </div>
@@ -32,7 +32,7 @@
         <h2><label>内容:</label></h2>
         <div class="input-content">
           <label>
-            <textarea class="content-area" name="content" rows="3"></textarea>
+            <textarea class="content-area" name="content" rows="3"><%= @task.content %></textarea>
           </label>
         </div>
       </div>
