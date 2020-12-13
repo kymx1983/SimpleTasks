@@ -3,7 +3,7 @@ class TaskController < ApplicationController
     @limit_date = Date.today
     @today = Date.today
 
-    @tasks = get_tasks(@today, @limit_date)
+    @tasks = get_tasks(@today, @limit_date, @current_user.id)
   end
 
   def search
@@ -23,7 +23,7 @@ class TaskController < ApplicationController
 
     create_task(@limit_date)
 
-    @tasks = get_tasks(@today, @limit_date)
+    @tasks = get_tasks(@today, @limit_date, @current_user.id)
 
     flash[:notice] = "ルーティーンからタスクを作成しました。"
     render("task/index")
@@ -53,6 +53,7 @@ class TaskController < ApplicationController
     @task.limit_date = params[:limit_date]
     @task.limit_time = params[:limit_time]
     @task.status = 0
+    @task.user_id = @current_user.id
 
     if @task.save
       flash[:notice] = "「#{@task.title}」を追加しました。"
@@ -128,15 +129,16 @@ class TaskController < ApplicationController
 
   private
 
-  def get_tasks(today, limit_date, close_display = "")
+  def get_tasks(today, limit_date, user_id, close_display = "")
 
     if close_display != "on"
       where = "(limit_date = ? or limit_date < ?)"
       where += " and status <> 1"
-      Task.where(where, limit_date, today).order(:status).order(:limit_date)
+      where += " and user_id = ?"
+      Task.where(where, limit_date, today, user_id).order(:status).order(:limit_date)
     else
-      where = "limit_date = ? or (limit_date < ? and status <> 1)"
-      Task.where(where, limit_date, today).order(:status).order(:limit_date,)
+      where = "(limit_date = ? or (limit_date < ? and status <> 1)) and user_id = ?"
+      Task.where(where, limit_date, today, user_id).order(:status).order(:limit_date)
     end
   end
 
@@ -149,6 +151,7 @@ class TaskController < ApplicationController
       task.limit_date = limit_date
       task.limit_time = routine.limit_time
       task.status = 0
+      task.user_id = @current_user.id
       task.save
     end
 

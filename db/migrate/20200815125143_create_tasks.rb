@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.text :content
       t.date :limit_date
       t.integer :status
+      t.integer :user_id
 
       t.timestamps
     end

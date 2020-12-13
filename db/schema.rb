@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_11_06_121634) do
     t.text "content"
     t.date "limit_date"
     t.integer "status"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "limit_time"
