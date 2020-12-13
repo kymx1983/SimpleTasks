@@ -1,6 +1,7 @@
 class RoutineController < ApplicationController
   def index
-    @routine = Routine.all
+    where = "user_id = ?"
+    @routine = Routine.where(where, @current_user.id).order(:limit_time)
   end
 
   def show
@@ -17,7 +18,7 @@ class RoutineController < ApplicationController
     @routine.title = params[:title]
     @routine.content = params[:content]
     @routine.limit_time = params[:limit_time]
-    @routine.user_id = 1
+    @routine.user_id = @current_user.id
 
     if @routine.save
       flash[:notice] = "「#{@routine.title}」を追加しました。"
@@ -46,7 +47,7 @@ class RoutineController < ApplicationController
     @routine.title = params[:title]
     @routine.content = params[:content]
     @routine.limit_time = params[:limit_time]
-    @routine.user_id = 1
+    @routine.user_id = @current_user
 
     if @routine.save
       flash[:notice] = "「#{@routine.title}」を編集しました。"
