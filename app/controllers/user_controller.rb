@@ -16,17 +16,18 @@ class UserController < ApplicationController
       puts @user.id
       puts @user.password
       if @user.password == params[:password]
-        puts "ログインに成功しました"
+        flash[:notice] = "ログインしました"
         session[:login_id] = @user.id
         redirect_to("/task/index")
       end
     else
-      puts "ログインに失敗しました"
+      flash[:alert] = "ユーザIDまたはパスワードが誤っています"
       redirect_to("/user/login")
     end
   end
 
   def new
+    @user = User.new
   end
 
   def show
@@ -37,8 +38,13 @@ class UserController < ApplicationController
     @user.user_name = params[:user_name]
     @user.login_id = params[:login_id]
     @user.password = params[:password]
-    @user.save
 
-    redirect_to("/user/login")
+    if @user.save
+      flash[:notice] = "「#{@user.user_name}」を追加しました。"
+      redirect_to('/login')
+    else
+      flash[:alert] = "入力内容に誤りがあります。ご確認ください。"
+      render("user/new")
+    end
   end
 end

@@ -17,6 +17,7 @@ class RoutineController < ApplicationController
     @routine.title = params[:title]
     @routine.content = params[:content]
     @routine.limit_time = params[:limit_time]
+    @routine.user_id = 1
 
     if @routine.save
       flash[:notice] = "「#{@routine.title}」を追加しました。"
@@ -45,6 +46,7 @@ class RoutineController < ApplicationController
     @routine.title = params[:title]
     @routine.content = params[:content]
     @routine.limit_time = params[:limit_time]
+    @routine.user_id = 1
 
     if @routine.save
       flash[:notice] = "「#{@routine.title}」を編集しました。"

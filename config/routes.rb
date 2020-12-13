@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "routine/destroy/:id" => "routine#destroy"
   get "routine/edit/:id" => "routine#edit"
   get 'task/new'
+  get "login" => "user#login"
   post "task/search"
   post "task/create_task_do"
   post "task/close"
